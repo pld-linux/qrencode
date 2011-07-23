@@ -1,0 +1,11 @@
+--- qrencode-3.1.1/configure.ac~	2010-02-03 01:42:12.000000000 +0100
++++ qrencode-3.1.1/configure.ac	2011-07-23 21:23:33.062373499 +0200
+@@ -36,7 +36,7 @@
+  [build_tools=$withval], [build_tools=yes])
+ AM_CONDITIONAL(BUILD_TOOLS, [test "x$build_tools" = "xyes" ])
+ if test x$build_tools = xyes ; then
+-	PKG_CHECK_MODULES(png, "libpng12")
++	PKG_CHECK_MODULES(png, "libpng")
+ fi
+ 
+ dnl --with-tests
