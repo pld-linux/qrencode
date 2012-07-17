@@ -1,13 +1,12 @@
 Summary:	QR Code encoder into PNG image
 Name:		qrencode
-Version:	3.1.1
-Release:	3
+Version:	3.3.1
+Release:	1
 License:	LGPL v2+
 Group:		Applications/File
 URL:		http://megaui.net/fukuchi/works/qrencode/index.en.html
 Source0:	http://megaui.net/fukuchi/works/qrencode/%{name}-%{version}.tar.bz2
-# Source0-md5:	e7feb2c2c65d0f2f4010a14da3ecdb89
-Patch0:		%{name}-libpng.patch
+# Source0-md5:	14920ba9d0515bddcaebfbd728229c5d
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -51,7 +50,6 @@ This package contains the development files for the qrencode library.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -92,7 +90,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING ChangeLog NEWS README TODO html
 %attr(755,root,root) %ghost %{_libdir}/libqrencode.so.3
 %attr(755,root,root) %{_libdir}/libqrencode.so.*.*.*
-
 
 %files devel
 %defattr(644,root,root,755)
