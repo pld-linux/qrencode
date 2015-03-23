@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static libraries
-#
+
 Summary:	QR Code encoder into PNG image
 Summary(pl.UTF-8):	Koder kodu QR do obrazów PNG
 Name:		qrencode
 Version:	3.4.4
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		Applications/File
 Source0:	http://fukuchi.org/works/qrencode/%{name}-%{version}.tar.bz2
@@ -108,17 +108,20 @@ Statyczna biblioteka qrencode.
 
 %{__make}
 
-%install
-rm -rf $RPM_BUILD_ROOT
-
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-
 # manual
 doxygen
 
+%install
+rm -rf $RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
+install -d $RPM_BUILD_ROOT/%{_lib}
+mv -f $RPM_BUILD_ROOT%{_libdir}/libqrencode.so.* $RPM_BUILD_ROOT/%{_lib}
+ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libqrencode.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libqrencode.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -134,8 +137,8 @@ rm -rf $RPM_BUILD_ROOT
 %files libs
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README TODO
-%attr(755,root,root) %{_libdir}/libqrencode.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libqrencode.so.3
+%attr(755,root,root) /%{_lib}/libqrencode.so.*.*.*
+%attr(755,root,root) %ghost /%{_lib}/libqrencode.so.3
 
 %files devel
 %defattr(644,root,root,755)
