@@ -5,19 +5,19 @@
 Summary:	QR Code encoder into PNG image
 Summary(pl.UTF-8):	Koder kodu QR do obrazów PNG
 Name:		qrencode
-Version:	3.4.4
-Release:	3
+Version:	4.0.0
+Release:	1
 License:	LGPL v2.1+
 Group:		Applications/File
-Source0:	http://fukuchi.org/works/qrencode/%{name}-%{version}.tar.bz2
-# Source0-md5:	62ba472bede0ad393cc63e0012b5f007
-URL:		http://fukuchi.org/works/qrencode/index.en.html
-BuildRequires:	SDL-devel >= 1.2.0
+Source0:	https://fukuchi.org/works/qrencode/%{name}-%{version}.tar.bz2
+# Source0-md5:	f92ae29beb877f91df18957b4785b7f0
+URL:		https://fukuchi.org/works/qrencode/index.en.html
+BuildRequires:	SDL2-devel >= 2.0.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libpng-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -138,7 +138,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README TODO
 %attr(755,root,root) /%{_lib}/libqrencode.so.*.*.*
-%attr(755,root,root) %ghost /%{_lib}/libqrencode.so.3
+%attr(755,root,root) %ghost /%{_lib}/libqrencode.so.4
 
 %files devel
 %defattr(644,root,root,755)
