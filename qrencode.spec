@@ -147,6 +147,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/qrencode.h
 %{_pkgconfigdir}/libqrencode.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libqrencode.a
+%endif
