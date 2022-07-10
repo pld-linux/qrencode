@@ -5,12 +5,12 @@
 Summary:	QR Code encoder into PNG image
 Summary(pl.UTF-8):	Koder kodu QR do obrazów PNG
 Name:		qrencode
-Version:	4.0.2
+Version:	4.1.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Applications/File
 Source0:	https://fukuchi.org/works/qrencode/%{name}-%{version}.tar.bz2
-# Source0-md5:	3eb64357f6fbdb68c27cb2e44e97280a
+# Source0-md5:	de7185bcab635a34730e1b73d4efa705
 URL:		https://fukuchi.org/works/qrencode/index.en.html
 BuildRequires:	SDL2-devel >= 2.0.0
 BuildRequires:	autoconf >= 2.50
